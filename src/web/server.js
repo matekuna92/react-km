@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
   app.use((err, req, res, next) => {
     if (res.headersSent) {
-      return next(err);
+      return next(err); 
     }
   
     res.status(500);

@@ -21,8 +21,10 @@
     "cors": "^2.8.5",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
+    "helmet": "^3.15.0",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.4.0",
+    "mongodb": "^3.1.10",
     "winston": "^3.1.0"
   }
 }

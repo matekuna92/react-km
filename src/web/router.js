@@ -1,19 +1,19 @@
 const { Router } = require('express');
 const { get, list, insert, update, remove } = require('./deviceHandler');
 const { register, login } = require('./userHandler');
-const auth = require('./auth/jwt');
+//const auth = require('./auth/jwt');
 
 // public és private router szétválasztása
 const publicRouter = Router();
 const privateRouter = Router();
 
-privateRouter.use(auth);
+//privateRouter.use(auth);
 
 publicRouter.get('/', (req,res) => {
-    res.send('Server working');
+    res.send('Server is working');
 })
 
-// device routers
+// device routers - deviceHandler-ben definiáljuk a function-öket 
 
 privateRouter.get('/devices', list);
 privateRouter.get('/devices/:id', get);
