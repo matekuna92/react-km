@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { logLevel } = require('../config');
+const { logLevel } = require('./config');
 
 // https://github.com/winstonjs/winston
 
@@ -8,7 +8,7 @@ const logger = winston.createLogger({
     transports: [
         new winston.transports.Console({
             format: winston.format.combine(
-                winston.formate.simple(),
+                winston.format.simple(),
                 winston.format.colorize(),
                 winston.format.timestamp()
             )

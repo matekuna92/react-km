@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb');
 const { getDB } = require('./dbconnect');
 
-const collectionName = { devices };
+const collectionName = 'devices';
 
 async function get(id)
 {
