@@ -23,8 +23,8 @@ privateRouter.delete('/devices/:id', remove);
 
 // user routers
 
-publicRouter.post('/register', registerUser);
-publicRouter.post('/login', loginUser);
+//publicRouter.post('/register', registerUser);
+//publicRouter.post('/login', loginUser);
 
 module.exports = {
     publicRouter,

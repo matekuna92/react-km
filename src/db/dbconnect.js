@@ -1,11 +1,11 @@
-const { mongoClient } = require('mongodb');
+const { MongoClient } = require('mongodb');
 const { dbURI } = require('../config');
 
-let mongoclient;
+let mongoClient;
 
 async function connect()
 {
-    mongoClient = await mongoClient.connect(
+    mongoClient = await MongoClient.connect(
         dbURI
     )
 }
