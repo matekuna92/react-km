@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb');
 const { getDB } = require('./dbconnect');
 
-const collectionName = 'devices';
+const collectionName = 'tvs';
 
 async function get(id)
 {
@@ -23,7 +23,7 @@ async function insert(data)
 
 async function update(id, data)
 {
-    const result = await getDB().collection(collectionName).updateOne({ _id: ObjectId(id), data }); 
+    await getDB().collection(collectionName).updateOne({ _id: ObjectId(id) }, { $set: data });
     return data;                                                    // melyik id-val rendelkező device-t updateljem, és mivel
 }
 

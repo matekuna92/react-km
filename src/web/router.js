@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { get, list, insert, update, remove } = require('./deviceHandler');
-const { register, login } = require('./userHandler');
+const { registerUser, loginUser } = require('./userHandler');
 //const auth = require('./auth/jwt');
 
 // public és private router szétválasztása
@@ -23,8 +23,8 @@ privateRouter.delete('/devices/:id', remove);
 
 // user routers
 
-//publicRouter.post('/register', registerUser);
-//publicRouter.post('/login', loginUser);
+publicRouter.post('/register', registerUser);
+publicRouter.post('/login', loginUser);
 
 module.exports = {
     publicRouter,
