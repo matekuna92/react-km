@@ -46,6 +46,11 @@ async function insert(req, res)     // csak akkor insert-elünk, ha a kérésben
         res.status(400);
         res.send(err.details[0].message);
     }
+
+    const result = await devices.insert(req.body);
+
+    res.status(201);
+    res.send(result);
 }
 
 async function update(req, res)     // update esetén is séma validálás
@@ -69,7 +74,8 @@ async function update(req, res)     // update esetén is séma validálás
 async function remove(req, res)
 {
     const deviceID = req.params.id;
-    const result = await devices.remove(deviceID);
+    
+    await devices.remove(deviceID);
     
     res.status(204);                        // no-content error - https://restfulapi.net/http-status-204-no-content/
     res.end();
