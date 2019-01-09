@@ -5,13 +5,13 @@ const collectionName = 'users';
 
 async function registerFunction(userDatas)
  {
-     await getDB.collection(collectionName).insertOne(userDatas)
+     await getDB().collection(collectionName).insertOne(userDatas);
      return userDatas;
  }
 
  async function findByEmail(email)
  {
-     return getDB.collection(collectionName).findOne({ email });
+     return getDB().collection(collectionName).findOne({ email });
  }
 
  module.exports = {

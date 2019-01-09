@@ -13,11 +13,12 @@ async function list()
 {
     const result = await getDB().collection(collectionName).find().toArray();
     return result;
+    // .skip(), .limit(), .sort() ... filterek használhatók, feltétel alapján szűrhető a lekérdezés 
 }
 
 async function insert(data)
 {
-   const result = await getDB().collection(collectionName).insertOne(data);
+   await getDB().collection(collectionName).insertOne(data);
    return data;         // insert, update esetén nincs szükség a teljes result-ra, csak a konkrét data-ra
 }
 

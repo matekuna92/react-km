@@ -37,10 +37,11 @@ async function list(req, res)
 
 async function insert(req, res)     // csak akkor insert-elünk, ha a kérésben szereplő adat egyáltalán megfelel a sémának
 {
+    logger.info(JSON.stringify(req.body));
     try 
     {
-        joi.attempt(req.body, deviceSchema);
-    }
+        joi.attempt(req.body, deviceSchema);    // összevetjük a body-ban kapott JSON adatot a sémával, csak 
+    }                                           // csak ennek megfelelő adatot insertálunk
     catch(err)
     {
         res.status(400);
