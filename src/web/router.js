@@ -3,7 +3,8 @@ const { get, list, insert, update, remove } = require('./deviceHandler');
 const { registerUser, loginUser } = require('./userHandler');
 
 //const auth = require('./auth/authSimple');
-const auth = require('./auth/authBasic');
+//const auth = require('./auth/authBasic');
+const auth = require('./auth/authCookies');
 
 // public és private router szétválasztása
 const publicRouter = Router();
@@ -17,7 +18,7 @@ publicRouter.get('/', (req,res) => {
 
 // device routers - deviceHandler-ben definiáljuk a function-öket 
 
-privateRouter.get('/devices', list);  // tetszőleges számú middleware függvény megadható paraméterben
+privateRouter.get('/devices', auth, list);  // tetszőleges számú middleware függvény megadható paraméterben
 privateRouter.get('/devices/:id', get);
 privateRouter.post('/devices', insert);
 privateRouter.put('/expenses/:id', update);

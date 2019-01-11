@@ -1,6 +1,6 @@
 const users = require('../../db/user');
 
-async function cookiesAuth(req, res, next) {
+async function authCookies(req, res, next) {
   const auth = req.cookies.session;
 
   if (!auth) {
@@ -24,4 +24,4 @@ async function cookiesAuth(req, res, next) {
   return next();
 }
 
-module.exports = cookiesAuth;
+module.exports = authCookies;
