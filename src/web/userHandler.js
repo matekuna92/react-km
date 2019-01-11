@@ -1,6 +1,6 @@
-//const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const users = require('../db/user');
-//const { jwtSecret } = require('../config');
+const { jwtSecret } = require('../config');
 
 async function registerUser(req, res)
 {
@@ -10,11 +10,24 @@ async function registerUser(req, res)
 
 async function loginUser(req, res)
 {
-    const { email, password } = req.body;
- //   const token = jtw.sign({ email }, jwtSecret);
-    
-//    res.send(token);
+    const { email, password } = req.body;    
+    const sessionToken = Buffer.from(`${email}:${password}`).toString('base64');
+    res.cookie('session', sessionToken, {maxAge:90000, httpOnly: true }).end();
+
+    // header-ben küldünk egy cookiet: Set-Cookie: key:value formában --> key a 'session', a sessionToken pedig a value
 }
+
+async function loginJWT(req, res)
+{
+    const { email, password } = req.body; // password-re nincs szükség, elég az email + hash
+    const token = jwt.verify({ email }, jwtSecret);
+
+    res.send(token);
+
+    //  const data = jwt.verify({ email }, jwtSecret);
+    //  req.user = data;         --> eltárolom az adatokat (email mellett tetszőleges adatot is akár), és felpakolom egy user objektumba, így
+}                                // használható middleWare, vagy 
+
 
 module.exports = {
     registerUser,
