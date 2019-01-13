@@ -10,7 +10,7 @@ const auth = require('./auth/authCookies');
 const publicRouter = Router();
 const privateRouter = Router();
 
-privateRouter.use(auth);
+//privateRouter.use(auth);
 
 publicRouter.get('/', (req,res) => {
     res.send('Server is working');
@@ -18,7 +18,7 @@ publicRouter.get('/', (req,res) => {
 
 // device routers - deviceHandler-ben definiáljuk a function-öket 
 
-privateRouter.get('/devices', auth, list);  // tetszőleges számú middleware függvény megadható paraméterben
+privateRouter.get('/devices', list);  // tetszőleges számú middleware függvény megadható paraméterben
 privateRouter.get('/devices/:id', get);
 privateRouter.post('/devices', insert);
 privateRouter.put('/expenses/:id', update);
