@@ -5,12 +5,14 @@ const devices = require('../db/device');
 const logger = require('../logger');
 
 const deviceSchema = joi.object({
-    displaySizeInInches: joi.number().required(),
-    displayType: joi.string().required(),
-    resolution: joi.number().required(),
-    outputs: joi.array().items(joi.string()).required(),
     name: joi.string().required(),
-    itemNo: joi.string().required()
+    amount: joi.number().required()
+ //   displaySizeInInches: joi.number().required(),
+  //  displayType: joi.string().required(),
+   // resolution: joi.number().required(),
+    //outputs: joi.array().items(joi.string()).required(),
+   // name: joi.string().required(),
+   // itemNo: joi.string().required()
 })
 
 async function get(req, res)
