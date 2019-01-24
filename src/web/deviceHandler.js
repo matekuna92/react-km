@@ -13,7 +13,7 @@ const deviceSchema = joi.object({
     //outputs: joi.array().items(joi.string()).required(),
    // name: joi.string().required(),
    // itemNo: joi.string().required()
-})
+}).unknown().required();
 
 async function get(req, res)
 {

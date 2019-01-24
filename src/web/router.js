@@ -10,7 +10,7 @@ const auth = require('./auth/authCookies');
 const publicRouter = Router();
 const privateRouter = Router();
 
-//privateRouter.use(auth);
+privateRouter.use(auth);
 
 publicRouter.get('/', (req,res) => {
     res.send('Server is working');
